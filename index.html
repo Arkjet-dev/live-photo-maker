@@ -1,0 +1,22 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Live Photo Maker</title><link rel="stylesheet" href="style.css"></head><body><main>
+<h1>Live Photo Maker</h1><p class="sub">Turn any video into an Apple Live Photo. Everything happens on your device, so your video is never uploaded.</p>
+<section class="card"><label class="pick">Choose a video<input id="file" type="file" accept="video/*"></label></section>
+<section class="card hidden" id="editor">
+<video id="vid" playsinline muted controls></video>
+<div class="row"><label>Start <b id="sv">0.0s</b></label><input type="range" id="start" min="0" step="0.05" value="0"></div>
+<div class="row"><label>Length <b id="lv">3.0s</b></label><input type="range" id="len" min="0.5" max="3" step="0.1" value="3"></div>
+<div class="row"><label>Still photo moment <b id="kv">1.5s</b></label><input type="range" id="key" min="0" step="0.05" value="1.5"></div>
+<p class="hint">Drag the sliders; the video jumps to show you the frame that'll be the still photo.</p>
+<button id="go">Make Live Photo</button><p id="status"></p><progress id="prog" class="hidden" max="1" value="0"></progress>
+</section>
+<section class="card hidden" id="result"><h2>Done</h2><img id="still" alt="Still preview">
+<div class="btns"><a id="dzip" class="btn">Download both (.zip)</a><a id="djpg" class="btn alt">Photo (.JPG)</a><a id="dmov" class="btn alt">Video (.MOV)</a></div></section>
+<section class="card"><h2>How to get it onto your iPhone</h2><ol>
+<li><b>From a Mac:</b> download both files (unzip if you used the zip), select the .JPG and .MOV together and drag them into the Photos app, or AirDrop both at once to your iPhone. They'll show up as one Live Photo.</li>
+<li><b>Made it on your iPhone:</b> tap <i>Photo</i> and <i>Video</i>, save both to Files, then select both in Files, tap Share and AirDrop them to yourself (or to a Mac). Saving them separately to Photos won't pair them.</li>
+<li>Keep the two files' names matching and don't edit either one, or they'll stop pairing.</li>
+<li>To check: open it in Photos and press and hold the photo; it should play. It says <i>LIVE</i> in the top corner.</li></ol>
+<p class="hint">First run downloads the converter (about 30&nbsp;MB) and conversion can take a minute on phones.</p></section>
+<footer>Runs entirely in your browser using ffmpeg.wasm. <a href="https://github.com/Arkjet-dev/live-photo-maker">Source</a></footer>
+</main><script src="vendor/ff/ffmpeg.js"></script><script src="livephoto.js"></script><script src="app.js"></script></body></html>
